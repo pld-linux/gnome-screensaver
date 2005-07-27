@@ -80,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
-%attr(644,root,root) %config(noreplace) %verify(not size mtime md5) /etc/pam.d/gnome-screensaver
+%config(noreplace) %verify(not md5 mtime size) /etc/pam.d/gnome-screensaver
 %{_sysconfdir}/gconf/schemas/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*
