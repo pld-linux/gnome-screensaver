@@ -1,26 +1,26 @@
 Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	0.0.10
+Version:	0.0.11
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/0.0/%{name}-%{version}.tar.gz
-# Source0-md5:	a6046abb1793fac2f715937ba1953bb4
+# Source0-md5:	7fd27c7130112f8159e3fb52283ede2e
 Source1:	%{name}.pamd
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
-BuildRequires:	GConf2-devel >= 2.6.1
+BuildRequires:	GConf2-devel >= 2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.30
-BuildRequires:	gnome-vfs2-devel >= 2.6.0
-BuildRequires:	gtk+2-devel >= 2:2.6.0
-BuildRequires:	intltool >= 0.29
-BuildRequires:	libglade2 >= 2.5.0
-BuildRequires:	libgnomeui-devel >= 2.6.0
+BuildRequires:	dbus-glib-devel >= 0.36
+BuildRequires:	gnome-vfs2-devel >= 2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.8.3
+BuildRequires:	intltool >= 0.34.1
+BuildRequires:	libglade2 >= 1:2.5.1
+BuildRequires:	libgnomeui-devel >= 2.12.0
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.6.0
+BuildRequires:	libxml2-devel >= 1:2.6.21
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 Requires(post,preun):   GConf2
