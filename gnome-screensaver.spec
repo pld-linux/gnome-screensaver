@@ -1,16 +1,15 @@
 Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	0.0.13
+Version:	0.0.16
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/0.0/%{name}-%{version}.tar.gz
-# Source0-md5:	22d8d4110224e97c1afecabac0a537f1
+# Source0-md5:	19f966523a52e102e8c3231795bb1748
 Source1:	%{name}.pamd
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
-Patch2:		%{name}-xscreensaver.patch
 BuildRequires:	GConf2-devel >= 2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,6 +25,7 @@ BuildRequires:	libxml2-devel >= 1:2.6.21
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 Requires(post,preun):   GConf2
+Requires:	xdg-menus
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,7 +40,6 @@ dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -89,7 +88,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/gnome-screensaver
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
-%{_desktopdir}/*.desktop
 %attr(755,root,root) %{_libdir}/*
+%{_datadir}/%{name}
+%{_datadir}/desktop-directories
+%{_desktopdir}/*.desktop
 %{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
+%{_sysconfdir}/xdg/menus
