@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*
 %{_datadir}/%{name}
-%{_datadir}/desktop-directories
+%{_datadir}/desktop-directories/*
 %{_desktopdir}/*.desktop
 %{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
-%{_sysconfdir}/xdg/menus
+%{_sysconfdir}/xdg/menus/*
