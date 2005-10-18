@@ -15,6 +15,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.36
 BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-menus-devel >= 2.12.0
 BuildRequires:	gnome-vfs2-devel >= 2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.8.3
 BuildRequires:	intltool >= 0.34.1
