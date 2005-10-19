@@ -73,6 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/gnome-screensaver
 
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+
 %find_lang %{name}
 
 %clean
@@ -89,7 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/gnome-screensaver
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*
+%attr(755,root,root) %{_libdir}/gnome-screensaver-dialog
+%attr(755,root,root) %{_libdir}/gnome-screensaver
 %{_datadir}/%{name}
 %{_datadir}/desktop-directories/*
 %{_desktopdir}/*.desktop
