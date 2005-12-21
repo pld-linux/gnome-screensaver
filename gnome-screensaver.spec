@@ -58,6 +58,8 @@ dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
 	--with-xf86vmode-ext \
 	--with-xidle-ext \
 	--with-xinerama-ext \
+	--with-xscreensaverdir=%{_sysconfdir}/X11/xscreensaver \
+	--with-xscreensaverhackdir=%{_libdir}/xscreensaver \
 	--with-gdm-config=%{_sysconfdir}/X11/gdm/gdm.conf
 %{__make}
 
