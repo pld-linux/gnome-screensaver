@@ -19,6 +19,7 @@ BuildRequires:	gnome-menus-devel >= 2.12.0
 BuildRequires:	gnome-vfs2-devel >= 2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.8.3
 BuildRequires:	intltool >= 0.34.1
+BuildRequires:	libexif-devel >= 0.6.12
 BuildRequires:	libglade2 >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.12.0
 BuildRequires:	libtool
