@@ -1,12 +1,12 @@
 Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.13.90
+Version:	2.13.91
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	8ff40bd9914a6272d6a9ace15edea207
+# Source0-md5:	8e0658fb0a5d6aa443ffb3713d05b7a9
 Source1:	%{name}.pamd
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
