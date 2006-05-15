@@ -10,18 +10,18 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.14/%{name}-%
 Source1:	%{name}.pamd
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
-BuildRequires:	GConf2-devel >= 2.12.0
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.36
-BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-menus-devel >= 2.12.0
-BuildRequires:	gnome-vfs2-devel >= 2.12.0
+BuildRequires:	gnome-common >= 2.14.0
+BuildRequires:	gnome-menus-devel >= 2.14.0
+BuildRequires:	gnome-vfs2-devel >= 2.14.0
 BuildRequires:	gtk+2-devel >= 2:2.8.3
 BuildRequires:	intltool >= 0.34.1
 BuildRequires:	libexif-devel >= 0.6.12
 BuildRequires:	libglade2 >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.12.0
+BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
@@ -61,7 +61,7 @@ dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
 	--with-xinerama-ext \
 	--with-xscreensaverdir=%{_sysconfdir}/X11/xscreensaver \
 	--with-xscreensaverhackdir=%{_libdir}/xscreensaver \
-	--with-gdm-config=%{_sysconfdir}/gdm/gdm.conf
+	--with-gdm-config=%{_sysconfdir}/X11/gdm/gdm.conf
 %{__make}
 
 %install
