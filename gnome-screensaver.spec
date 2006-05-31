@@ -1,12 +1,12 @@
 Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.14.1
-Release:	3
+Version:	2.14.2
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	59181612c8a5c8be7f0a392baba5245d
+# Source0-md5:	f76677180432a89ac46a8507fe34b45a
 Source1:	%{name}.pamd
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
@@ -16,17 +16,17 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-menus-devel >= 2.14.0
-BuildRequires:	gnome-vfs2-devel >= 2.14.0
-BuildRequires:	gtk+2-devel >= 2:2.8.3
-BuildRequires:	intltool >= 0.34.1
+BuildRequires:	gnome-vfs2-devel >= 2.14.2
+BuildRequires:	gtk+2-devel >= 2:2.8.18
+BuildRequires:	intltool >= 0.35
 BuildRequires:	libexif-devel >= 0.6.12
 BuildRequires:	libglade2 >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.14.0
+BuildRequires:	libgnomeui-devel >= 2.14.1
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 Requires(post,preun):   GConf2
-Requires:	libgnomeui >= 2.14.0
+Requires:	libgnomeui >= 2.14.1
 Requires:	xdg-menus
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
