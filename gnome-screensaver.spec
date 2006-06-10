@@ -73,8 +73,6 @@ rm -rf $RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/gnome-screensaver
 
-#rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
-
 %find_lang %{name}
 
 %clean
