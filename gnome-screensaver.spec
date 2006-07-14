@@ -1,32 +1,33 @@
 Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.15.3
+Version:	2.15.4
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	d2e0550ef59b8701e08d45955330404f
+# Source0-md5:	819b0b66bc4b55e0ac21639dd9b99a63
 Source1:	%{name}.pamd
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
 BuildRequires:	GConf2-devel >= 2.14.0
+BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.62
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-menus-devel >= 2.14.0
-BuildRequires:	gnome-vfs2-devel >= 2.15.1
-BuildRequires:	gtk+2-devel >= 2:2.9.2
+BuildRequires:	gnome-menus-devel >= 2.15.4.1
+BuildRequires:	gnome-vfs2-devel >= 2.15.3
+BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libexif-devel >= 1:0.6.13
-BuildRequires:	libglade2 >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.15.1
+BuildRequires:	libglade2 >= 1:2.6.0
+BuildRequires:	libgnomeui-devel >= 2.15.2
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 Requires(post,preun):   GConf2 >= 2.14.0
-Requires:	libgnomeui >= 2.15.1
+Requires:	libgnomeui >= 2.15.2
 Requires:	xdg-menus
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,6 +51,7 @@ dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--enable-pam \
 	--enable-locking \
@@ -89,8 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/gnome-screensaver
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/gnome-screensaver-dialog
 %attr(755,root,root) %{_libdir}/gnome-screensaver
+%attr(755,root,root) %{_libdir}/gnome-screensaver-dialog
+%attr(755,root,root) %{_libdir}/gnome-screensaver-gl-helper
 %{_datadir}/%{name}
 %{_datadir}/desktop-directories/*
 %dir %{_desktopdir}/screensavers
