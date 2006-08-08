@@ -1,0 +1,6 @@
+- mutual obsoletes (gnome-screensaver<->xscreensaver-gnome2), those
+  packages theoreticaly can coexist but gnome xdg-menus/control-center
+  shows only one of them anyway (common Name) and it may be undefined
+  what gnome lock button is going to use (besides gnome-screensaver will
+  have support for xscreensaver hacks soon)
+- proper xscreensaver and gdm paths
