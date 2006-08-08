@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig
 Requires(post,preun):   GConf2 >= 2.14.0
 Requires:	libgnomeui >= 2.15.90
 Requires:	xdg-menus
+Obsoletes:	xscreensaver-gnome2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
