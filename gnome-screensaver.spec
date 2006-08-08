@@ -2,7 +2,7 @@ Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
 Version:	2.14.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.14/%{name}-%{version}.tar.bz2
@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig
 Requires(post,preun):   GConf2
 Requires:	libgnomeui >= 2.14.1
 Requires:	xdg-menus
+Obsoletes:	xscreensaver-gnome2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,9 +61,9 @@ dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
 	--with-xf86vmode-ext \
 	--with-xidle-ext \
 	--with-xinerama-ext \
-	--with-xscreensaverdir=%{_sysconfdir}/X11/xscreensaver \
+	--with-xscreensaverdir=%{_datadir}/xscreensaver \
 	--with-xscreensaverhackdir=%{_libdir}/xscreensaver \
-	--with-gdm-config=%{_sysconfdir}/X11/gdm/gdm.conf
+	--with-gdm-config=%{_datadir}/gdm/defaults.conf
 %{__make}
 
 %install
