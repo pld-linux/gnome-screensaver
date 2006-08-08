@@ -94,12 +94,12 @@ rm -rf $RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/gnome-screensaver
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 _DIR=$(pwd)
 cd %{name}-xscreensaver
 # this one is provided by gnome-screensaver
-rm popsquares.desktop
+rm -f popsquares.desktop
 install * $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
 echo '%defattr(644,root,root,755)' > $_DIR/xscreensaver.files
 for I in *; do
