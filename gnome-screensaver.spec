@@ -129,3 +129,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*
 %{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
 %{_sysconfdir}/xdg/menus/*
+
+%files xscreensaver -f xscreensaver.files
+%defattr(644,root,root,755)
