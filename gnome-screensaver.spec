@@ -2,7 +2,7 @@ Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
 Version:	2.15.6
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.15/%{name}-%{version}.tar.bz2
@@ -124,7 +124,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/desktop-directories/*
 %dir %{_desktopdir}/screensavers
-%{_desktopdir}/screensavers/*.desktop
+%{_desktopdir}/screensavers/cosmos-slideshow.desktop
+%{_desktopdir}/screensavers/footlogo-floaters.desktop
+%{_desktopdir}/screensavers/personal-slideshow.desktop
+%{_desktopdir}/screensavers/popsquares.desktop
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
