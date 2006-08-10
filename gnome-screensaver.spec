@@ -45,7 +45,7 @@ dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
 
 %package xscreensaver
 Summary:        Support for xscreensaver
-Summary(pl):    Wsparcie dla xscreensaver
+Summary(pl):    Wsparcie dla xscreensavera
 Group:          X11/Applications
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires:       xscreensaver-savers
@@ -54,7 +54,7 @@ Requires:       xscreensaver-savers
 Support for xscreensaver.
 
 %description xscreensaver -l pl
-Wsparcie dla xscreensaver.
+Wsparcie dla xscreensavera.
 
 %prep
 %setup -q -a2
