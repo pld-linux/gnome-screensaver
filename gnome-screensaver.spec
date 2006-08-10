@@ -95,10 +95,10 @@ _DIR=$(pwd)
 cd %{name}-xscreensaver
 # this one is provided by gnome-screensaver
 rm -f popsquares.desktop
-install * $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
+install * $RPM_BUILD_ROOT%{_desktopdir}/screensavers
 echo '%defattr(644,root,root,755)' > $_DIR/xscreensaver.files
 for I in *; do
-        echo "%{_datadir}/%{name}/themes/$I" >> $_DIR/xscreensaver.files
+        echo "%{_desktopdir}/screensavers/$I" >> $_DIR/xscreensaver.files
 done
 cd $_DIR
 
