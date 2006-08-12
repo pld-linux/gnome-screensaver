@@ -29,7 +29,7 @@ BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xmlto
-Requires(post,preun):   GConf2 >= 2.14.0
+Requires(post,preun):	GConf2 >= 2.14.0
 Requires:	libgnomeui >= 2.15.91
 Requires:	xdg-menus
 Obsoletes:	xscreensaver-gnome2
@@ -44,11 +44,11 @@ Nowe rozwi±zanie wygaszcza ekranu dla GNOME, z bardziej zgodnymi z HIG
 dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
 
 %package xscreensaver
-Summary:        Support for xscreensaver
-Summary(pl):    Wsparcie dla xscreensavera
-Group:          X11/Applications
-Requires:       %{name} = %{epoch}:%{version}-%{release}
-Requires:       xscreensaver-savers
+Summary:	Support for xscreensaver
+Summary(pl):	Wsparcie dla xscreensavera
+Group:		X11/Applications
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	xscreensaver-savers
 
 %description xscreensaver
 Support for xscreensaver.
@@ -98,7 +98,7 @@ rm -f popsquares.desktop
 install * $RPM_BUILD_ROOT%{_desktopdir}/screensavers
 echo '%defattr(644,root,root,755)' > $_DIR/xscreensaver.files
 for I in *; do
-        echo "%{_desktopdir}/screensavers/$I" >> $_DIR/xscreensaver.files
+	echo "%{_desktopdir}/screensavers/$I" >> $_DIR/xscreensaver.files
 done
 cd $_DIR
 
