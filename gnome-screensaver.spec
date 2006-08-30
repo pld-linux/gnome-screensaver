@@ -78,9 +78,9 @@ Wsparcie dla xscreensavera.
 	--with-xf86vmode-ext \
 	--with-xidle-ext \
 	--with-xinerama-ext \
-	--with-xscreensaverdir=%{_sysconfdir}/X11/xscreensaver \
+	--with-xscreensaverdir=%{_datadir}/xscreensaver \
 	--with-xscreensaverhackdir=%{_libdir}/xscreensaver \
-	--with-gdm-config=%{_sysconfdir}/gdm/gdm.conf
+	--with-gdm-config=%{_datadir}/gdm/defaults.conf
 %{__make}
 
 %install
