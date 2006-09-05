@@ -1,12 +1,12 @@
 Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.15.7
-Release:	2
+Version:	2.16.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	09c09760c774cc5ec0840e196363d272
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.16/%{name}-%{version}.tar.bz2
+# Source0-md5:	393bd8aea3b3fabfb83c629dd9bd847b
 Source1:	%{name}.pamd
 Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
@@ -18,19 +18,19 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-menus-devel >= 2.15.91
-BuildRequires:	gnome-vfs2-devel >= 2.15.92
-BuildRequires:	gtk+2-devel >= 2:2.10.2
+BuildRequires:	gnome-menus-devel >= 2.16.0
+BuildRequires:	gnome-vfs2-devel >= 2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.10.3
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libexif-devel >= 1:0.6.13
 BuildRequires:	libglade2 >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xmlto
 Requires(post,preun):	GConf2 >= 2.14.0
-Requires:	libgnomeui >= 2.15.91
+Requires:	libgnomeui >= 2.16.0
 Requires:	xdg-menus
 Obsoletes:	xscreensaver-gnome2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
