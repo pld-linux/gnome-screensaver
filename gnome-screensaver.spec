@@ -1,12 +1,12 @@
 Summary:	GNOME screensaver
 Summary(pl):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.16.0
+Version:	2.16.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	393bd8aea3b3fabfb83c629dd9bd847b
+# Source0-md5:	af29aeb60a9908f6562664962129ff88
 Source1:	%{name}.pamd
 Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
@@ -19,8 +19,8 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-menus-devel >= 2.16.0
-BuildRequires:	gnome-vfs2-devel >= 2.16.0
-BuildRequires:	gtk+2-devel >= 2:2.10.3
+BuildRequires:	gnome-vfs2-devel >= 2.16.1
+BuildRequires:	gtk+2-devel >= 2:2.10.6
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libexif-devel >= 1:0.6.13
 BuildRequires:	libglade2 >= 1:2.6.0
