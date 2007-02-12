@@ -1,5 +1,5 @@
 Summary:	GNOME screensaver
-Summary(pl):	Wygaszacz ekranu GNOME
+Summary(pl.UTF-8):   Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
 Version:	2.14.0
 Release:	1
@@ -33,9 +33,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 A new screensaver solution for GNOME, with better HIG dialogs and a
 much better integration into the desktop than the old xscreensaver.
 
-%description -l pl
-Nowe rozwi±zanie wygaszcza ekranu dla GNOME, z bardziej zgodnymi z HIG
-dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
+%description -l pl.UTF-8
+Nowe rozwiÄ…zanie wygaszcza ekranu dla GNOME, z bardziej zgodnymi z HIG
+dialogami i lepszÄ… integracjÄ… z desktopem niÅ¼ stary xscreensaver.
 
 %prep
 %setup -q
