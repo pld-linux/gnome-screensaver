@@ -1,5 +1,5 @@
 Summary:	GNOME screensaver
-Summary(pl.UTF-8):   Wygaszacz ekranu GNOME
+Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
 Version:	2.16.3
 Release:	1
@@ -46,7 +46,7 @@ dialogami i lepszą integracją z desktopem niż stary xscreensaver.
 
 %package xscreensaver
 Summary:	Support for xscreensaver
-Summary(pl.UTF-8):   Wsparcie dla xscreensavera
+Summary(pl.UTF-8):	Wsparcie dla xscreensavera
 Group:		X11/Applications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	xscreensaver-savers
