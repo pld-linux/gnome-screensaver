@@ -12,26 +12,27 @@ Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
-BuildRequires:	GConf2-devel >= 2.16.0
+BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-menus-devel >= 2.16.1
-BuildRequires:	gnome-vfs2-devel >= 2.16.3
+BuildRequires:	gnome-menus-devel >= 2.17.92
+BuildRequires:	gnome-vfs2-devel >= 2.17.91
 BuildRequires:	gtk+2-devel >= 2:2.10.9
-BuildRequires:	intltool >= 0.35.4
+BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libexif-devel >= 1:0.6.13
 BuildRequires:	libglade2 >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.16.1
+BuildRequires:	libgnomekbd-devel >= 2.17.92
+BuildRequires:	libgnomeui-devel >= 2.17.92
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xmlto
 BuildRequires:	xorg-lib-libXmu-devel
-Requires(post,preun):	GConf2 >= 2.16.0
-Requires:	libgnomeui >= 2.16.1
+Requires(post,preun):	GConf2
+Requires:	libgnomeui >= 2.17.92
 Requires:	xdg-menus
 Obsoletes:	xscreensaver-gnome2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
