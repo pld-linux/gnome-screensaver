@@ -1,43 +1,70 @@
 Summary:	GNOME screensaver
-Summary(pl):	Wygaszacz ekranu GNOME
+Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	0.0.8
+Version:	2.17.8
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/0.0/%{name}-%{version}.tar.gz
-# Source0-md5:	7f5b63f61aa7019dfd411054cf53916a
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.17/%{name}-%{version}.tar.bz2
+# Source0-md5:	28e5dc0f96dbf60014222000a02639a9
 Source1:	%{name}.pamd
+Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
+# Source2-md5:	58ad753724418430fa93f02558056eab
 Patch0:		%{name}-desktop.patch
-BuildRequires:	GConf2-devel >= 2.6.1
+Patch1:		%{name}-cosmos_theme_dir.patch
+BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.30
-BuildRequires:	gnome-vfs2-devel >= 2.6.0
-BuildRequires:	gtk+2-devel >= 2:2.6.0
-BuildRequires:	intltool >= 0.29
-BuildRequires:	libglade2 >= 2.5.0
-BuildRequires:	libgnomeui-devel >= 2.6.0
+BuildRequires:	dbus-glib-devel >= 0.73
+BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-menus-devel >= 2.17.92
+BuildRequires:	gnome-vfs2-devel >= 2.17.91
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	intltool >= 0.35.5
+BuildRequires:	libexif-devel >= 1:0.6.13
+BuildRequires:	libglade2 >= 1:2.6.0
+BuildRequires:	libgnomekbd-devel >= 2.17.92
+BuildRequires:	libgnomeui-devel >= 2.17.92
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.6.0
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
-Requires(post,preun):   GConf2
+BuildRequires:	xmlto
+BuildRequires:	xorg-lib-libXmu-devel
+Requires(post,preun):	GConf2
+Requires:	libgnomeui >= 2.17.92
+Requires:	xdg-menus
+Obsoletes:	xscreensaver-gnome2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A new screensaver solution for GNOME, with better HIG dialogs and a
 much better integration into the desktop than the old xscreensaver.
 
-%description -l pl
-Nowe rozwi±zanie wygaszcza ekranu dla GNOME, z bardziej zgodnymi z HIG
-dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
+%description -l pl.UTF-8
+Nowe rozwiÄ…zanie wygaszcza ekranu dla GNOME, z bardziej zgodnymi z HIG
+dialogami i lepszÄ… integracjÄ… z desktopem niÅ¼ stary xscreensaver.
+
+%package xscreensaver
+Summary:	Support for xscreensaver
+Summary(pl.UTF-8):	Wsparcie dla xscreensavera
+Group:		X11/Applications
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	xscreensaver-savers
+
+%description xscreensaver
+Support for xscreensaver.
+
+%description xscreensaver -l pl.UTF-8
+Wsparcie dla xscreensavera.
 
 %prep
-%setup -q
+%setup -q -a2
 %patch0 -p1
+%patch1 -p1
 
 %build
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -48,14 +75,14 @@ dialogami i lepsz± integracj± z desktopem ni¿ stary xscreensaver.
 	--enable-locking \
 	--with-dpms-ext \
 	--with-mit-ext \
-	--with-proc-interrupts \
-	--with-randr-ext \
 	--with-shadow \
 	--with-xf86gamma-ext \
 	--with-xf86vmode-ext \
 	--with-xidle-ext \
 	--with-xinerama-ext \
-	--with-gdm-config=%{_sysconfdir}/X11/gdm/gdm.conf
+	--with-xscreensaverdir=%{_datadir}/xscreensaver \
+	--with-xscreensaverhackdir=%{_libdir}/xscreensaver \
+	--with-gdm-config=%{_datadir}/gdm/defaults.conf
 %{__make}
 
 %install
@@ -65,6 +92,17 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/gnome-screensaver
+
+_DIR=$(pwd)
+cd %{name}-xscreensaver
+# this one is provided by gnome-screensaver
+rm -f popsquares.desktop
+install * $RPM_BUILD_ROOT%{_desktopdir}/screensavers
+echo '%defattr(644,root,root,755)' > $_DIR/xscreensaver.files
+for I in *; do
+	echo "%{_desktopdir}/screensavers/$I" >> $_DIR/xscreensaver.files
+done
+cd $_DIR
 
 %find_lang %{name}
 
@@ -81,8 +119,22 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/gnome-screensaver
-%{_sysconfdir}/gconf/schemas/*
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*
+%attr(755,root,root) %{_libdir}/gnome-screensaver
+%attr(755,root,root) %{_libdir}/gnome-screensaver-dialog
+%attr(755,root,root) %{_libdir}/gnome-screensaver-gl-helper
 %{_datadir}/%{name}
+%{_datadir}/desktop-directories/*
+%dir %{_desktopdir}/screensavers
+%{_desktopdir}/screensavers/cosmos-slideshow.desktop
+%{_desktopdir}/screensavers/footlogo-floaters.desktop
+%{_desktopdir}/screensavers/personal-slideshow.desktop
+%{_desktopdir}/screensavers/popsquares.desktop
 %{_desktopdir}/*.desktop
+%{_pixmapsdir}/*
+%{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
+%{_sysconfdir}/xdg/menus/*
+%{_pkgconfigdir}/*.pc
+
+%files xscreensaver -f xscreensaver.files
+%defattr(644,root,root,755)

@@ -5,8 +5,9 @@ diff -aurN gnome-screensaver-0.0.8.orig/data/gnome-screensaver-preferences.deskt
  Exec=gnome-screensaver-preferences
  Terminal=false
  Type=Application
--Categories=Application;Settings;
+-Categories=Application;Settings;DesktopSettings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
+ StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=gnome-screensaver
+
