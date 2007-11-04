@@ -2,7 +2,7 @@ Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
 Version:	2.20.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.20/%{name}-%{version}.tar.bz2
@@ -35,6 +35,8 @@ Requires(post,preun):	GConf2
 Requires:	libgnomeui >= 2.18.1
 Requires:	xdg-menus
 Obsoletes:	xscreensaver-gnome2
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -104,6 +106,8 @@ for I in *; do
 done
 cd $_DIR
 
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}
 
 %clean
