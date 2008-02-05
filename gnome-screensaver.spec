@@ -19,7 +19,7 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-menus-devel >= 2.20.0
-BuildRequires:	glib2-devel >= 2:2.15.4
+BuildRequires:	glib2-devel >= 1:2.15.4
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libexif-devel >= 1:0.6.13
