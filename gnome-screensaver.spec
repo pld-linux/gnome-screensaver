@@ -1,12 +1,12 @@
 Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.20.0
-Release:	2
+Version:	2.21.6
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	d166a3ebf69289331b2ebcf5c0187fd9
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.21/%{name}-%{version}.tar.bz2
+# Source0-md5:	84aa370347fd84c939ecdd318e771aa6
 Source1:	%{name}.pamd
 Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
@@ -19,7 +19,7 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-menus-devel >= 2.20.0
-BuildRequires:	gnome-vfs2-devel >= 2.20.0
+BuildRequires:	glib2-devel >= 2:2.15.4
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libexif-devel >= 1:0.6.13
@@ -139,6 +139,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
 %{_sysconfdir}/xdg/menus/*
 %{_pkgconfigdir}/*.pc
+%{_mandir}/man1/*
 
 %files xscreensaver -f xscreensaver.files
 %defattr(644,root,root,755)
