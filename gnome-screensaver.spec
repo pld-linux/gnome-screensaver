@@ -5,34 +5,35 @@ Version:	2.21.6
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-screensaver/2.21/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.21/%{name}-%{version}.tar.bz2
 # Source0-md5:	84aa370347fd84c939ecdd318e771aa6
 Source1:	%{name}.pamd
 Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
-BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	GConf2-devel >= 2.21.90
 BuildRequires:	OpenGL-devel
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.73
+BuildRequires:	dbus-glib-devel >= 0.74
+BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel >= 1:2.15.6
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-menus-devel >= 2.20.0
-BuildRequires:	glib2-devel >= 1:2.15.4
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	intltool >= 0.35.5
-BuildRequires:	libexif-devel >= 1:0.6.13
-BuildRequires:	libglade2 >= 1:2.6.0
-BuildRequires:	libgnomekbd-devel >= 2.18.0
-BuildRequires:	libgnomeui-devel >= 2.18.1
+BuildRequires:	gnome-menus-devel >= 2.21.91
+BuildRequires:	gtk+2-devel >= 2:2.12.8
+BuildRequires:	intltool >= 0.36.0
+BuildRequires:	libglade2-devel >= 1:2.6.2
+BuildRequires:	libgnomekbd-devel >= 2.21.4
+BuildRequires:	libnotify-devel
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
+BuildRequires:	sed >= 4.0
 BuildRequires:	xmlto
+BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXmu-devel
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.18.1
 Requires:	xdg-menus
 Obsoletes:	xscreensaver-gnome2
 # sr@Latn vs. sr@latin
@@ -64,6 +65,9 @@ Wsparcie dla xscreensavera.
 %setup -q -a2
 %patch0 -p1
 %patch1 -p1
+
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv po/sr@{Latn,latin}.po
 
 %build
 %{__intltoolize}
@@ -106,8 +110,6 @@ for I in *; do
 done
 cd $_DIR
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}
 
 %clean
@@ -123,23 +125,30 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/gnome-screensaver
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/gnome-screensaver
+%attr(755,root,root) %{_bindir}/gnome-screensaver
+%attr(755,root,root) %{_bindir}/gnome-screensaver-command
+%attr(755,root,root) %{_bindir}/gnome-screensaver-preferences
+%dir %{_libdir}/gnome-screensaver
+%attr(755,root,root) %{_libdir}/gnome-screensaver/floaters
+%attr(755,root,root) %{_libdir}/gnome-screensaver/popsquares
+%attr(755,root,root) %{_libdir}/gnome-screensaver/slideshow
 %attr(755,root,root) %{_libdir}/gnome-screensaver-dialog
 %attr(755,root,root) %{_libdir}/gnome-screensaver-gl-helper
 %{_datadir}/%{name}
-%{_datadir}/desktop-directories/*
+%{_datadir}/desktop-directories/gnome-screensaver.directory
 %dir %{_desktopdir}/screensavers
 %{_desktopdir}/screensavers/cosmos-slideshow.desktop
 %{_desktopdir}/screensavers/footlogo-floaters.desktop
 %{_desktopdir}/screensavers/personal-slideshow.desktop
 %{_desktopdir}/screensavers/popsquares.desktop
-%{_desktopdir}/*.desktop
+%{_desktopdir}/gnome-screensaver-preferences.desktop
 %{_pixmapsdir}/*
 %{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
-%{_sysconfdir}/xdg/menus/*
-%{_pkgconfigdir}/*.pc
-%{_mandir}/man1/*
+%{_sysconfdir}/xdg/menus/gnome-screensavers.menu
+%{_pkgconfigdir}/gnome-screensaver.pc
+%{_mandir}/man1/gnome-screensaver.1*
+%{_mandir}/man1/gnome-screensaver-command.1*
+%{_mandir}/man1/gnome-screensaver-preferences.1*
 
 %files xscreensaver -f xscreensaver.files
 %defattr(644,root,root,755)
