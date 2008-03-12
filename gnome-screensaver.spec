@@ -1,18 +1,18 @@
 Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.21.6
+Version:	2.22.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	84aa370347fd84c939ecdd318e771aa6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	3f307d340d511c97192a9dc9b83a69f5
 Source1:	%{name}.pamd
 Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
-BuildRequires:	GConf2-devel >= 2.21.90
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -20,7 +20,7 @@ BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.15.6
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-menus-devel >= 2.21.91
+BuildRequires:	gnome-menus-devel >= 2.22.0
 BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	intltool >= 0.36.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
