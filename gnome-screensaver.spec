@@ -1,12 +1,12 @@
 Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.23.3
+Version:	2.23.90
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.23/%{name}-%{version}.tar.bz2
-# Source0-md5:	c66d729a9b3317edcd58c567a18c2ffa
+# Source0-md5:	2a4dbb7efaea5bb5fe12efcf1e2dbd01
 Source1:	%{name}.pamd
 Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
@@ -67,8 +67,6 @@ Wsparcie dla xscreensavera.
 %patch0 -p1
 %patch1 -p1
 
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 # Pashto not yet supported by (our?) libc
 %{__sed} -i -e 's#ps##' po/LINGUAS
 rm -rf po/ps
