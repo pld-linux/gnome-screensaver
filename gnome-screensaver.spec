@@ -25,7 +25,7 @@ BuildRequires:	gnome-menus-devel >= 2.22.0
 BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	intltool >= 0.36.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomekbd-devel >= 2.21.4
+BuildRequires:	libgnomekbd-devel >= 2.23.91
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
 BuildRequires:	pam-devel
