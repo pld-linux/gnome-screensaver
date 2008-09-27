@@ -1,35 +1,36 @@
 Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.22.2
+Version:	2.24.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	496a2e0cba5c27db57a72ecf2e17f789
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	aef361edcc32468d8dc50cf710d9bb80
 Source1:	%{name}.pamd
 Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
+# http://bugzilla.gnome.org/show_bug.cgi?id=552119
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cosmos_theme_dir.patch
-BuildRequires:	GConf2-devel >= 2.22.0
+BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.15.6
+BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-menus-devel >= 2.22.0
-BuildRequires:	gtk+2-devel >= 2:2.12.8
-BuildRequires:	intltool >= 0.36.0
+BuildRequires:	gnome-desktop-devel >= 2.24.0
+BuildRequires:	gnome-menus-devel >= 2.24.0
+BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomekbd-devel >= 2.21.4
+BuildRequires:	libgnomekbd-devel >= 2.24.0
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
 BuildRequires:	xmlto
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXmu-devel
@@ -65,12 +66,6 @@ Wsparcie dla xscreensavera.
 %setup -q -a2
 %patch0 -p1
 %patch1 -p1
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
-# Pashto not yet supported by (our?) libc
-%{__sed} -i -e 's#ps##' po/LINGUAS
-rm -rf po/ps
 
 %build
 %{__intltoolize}
