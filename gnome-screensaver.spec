@@ -1,30 +1,31 @@
 Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.24.1
-Release:	2
+Version:	2.26.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	f0b9cc3108bb9105141a8c22b56bf615
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.26/%{name}-%{version}.tar.bz2
+# Source0-md5:	f9c5144defc80991b18c653c029001d6
 Source1:	%{name}.pamd
 Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
 Patch0:		%{name}-cosmos_theme_dir.patch
-BuildRequires:	GConf2-devel >= 2.24.0
+URL:		http://live.gnome.org/GnomeScreensaver
+BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.60
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.18.0
+BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-desktop-devel >= 2.24.0
-BuildRequires:	gnome-menus-devel >= 2.24.0
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gnome-desktop-devel >= 2.26.0
+BuildRequires:	gnome-menus-devel >= 2.26.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomekbd-devel >= 2.24.0
+BuildRequires:	libgnomekbd-devel >= 2.26.0
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
 BuildRequires:	pam-devel
