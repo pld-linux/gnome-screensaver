@@ -1,16 +1,15 @@
 Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.26.1
+Version:	2.28.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.26/%{name}-%{version}.tar.bz2
-# Source0-md5:	13b9066bb2dfe9face50b3d852b67ded
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.28/%{name}-%{version}.tar.bz2
+# Source0-md5:	b37d4a210cac22a7312f9736f0c4356f
 Source1:	%{name}.pamd
-Source2:	http://ep09.pld-linux.org/~havner/%{name}-xscreensaver.tar.gz
+Source2:	%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
-Patch0:		%{name}-cosmos_theme_dir.patch
 URL:		http://live.gnome.org/GnomeScreensaver
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	OpenGL-devel
@@ -63,7 +62,6 @@ Wsparcie dla xscreensavera.
 
 %prep
 %setup -q -a2
-%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -132,6 +130,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gnome-screensaver-gl-helper
 %{_datadir}/%{name}
 %{_datadir}/desktop-directories/gnome-screensaver.directory
+%{_datadir}/backgrounds/cosmos
+%{_datadir}/gnome-background-properties/cosmos.xml
 %dir %{_desktopdir}/screensavers
 %{_desktopdir}/screensavers/cosmos-slideshow.desktop
 %{_desktopdir}/screensavers/footlogo-floaters.desktop
@@ -140,6 +140,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/gnome-screensaver-preferences.desktop
 %{_pixmapsdir}/*
 %{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
+%{_sysconfdir}/xdg/autostart/gnome-screensaver.desktop
 %{_sysconfdir}/xdg/menus/gnome-screensavers.menu
 %{_pkgconfigdir}/gnome-screensaver.pc
 %{_mandir}/man1/gnome-screensaver.1*
