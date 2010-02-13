@@ -23,15 +23,12 @@ BuildRequires:	gnome-desktop-devel >= 2.26.0
 BuildRequires:	gnome-menus-devel >= 2.26.0
 BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomekbd-devel >= 2.26.0
 BuildRequires:	libnotify-devel
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
-BuildRequires:	xmlto
 BuildRequires:	xorg-lib-libXScrnSaver-devel
-BuildRequires:	xorg-lib-libXmu-devel
 Requires(post,preun):	GConf2
 Requires:	xdg-menus
 Obsoletes:	xscreensaver-gnome2
