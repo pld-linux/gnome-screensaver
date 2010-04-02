@@ -1,12 +1,12 @@
 Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.28.3
-Release:	2
+Version:	2.30.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	e6fb9b206f3470c04e21474ee6d69687
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.30/%{name}-%{version}.tar.bz2
+# Source0-md5:	a18086bf2191795d87b7ea80b7b66daa
 Source1:	%{name}.pamd
 Source2:	%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
@@ -19,7 +19,7 @@ BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-desktop-devel >= 2.26.0
+BuildRequires:	gnome-desktop-devel >= 2.30.0
 BuildRequires:	gnome-menus-devel >= 2.26.0
 BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
@@ -59,6 +59,8 @@ Wsparcie dla xscreensavera.
 
 %prep
 %setup -q -a2
+sed -i s#^en@shaw## po/LINGUAS
+rm po/en@shaw.po
 
 %build
 %{__intltoolize}
@@ -79,7 +81,8 @@ Wsparcie dla xscreensavera.
 	--with-xinerama-ext \
 	--with-xscreensaverdir=%{_datadir}/xscreensaver \
 	--with-xscreensaverhackdir=%{_libdir}/xscreensaver \
-	--with-gdm-config=%{_datadir}/gdm/defaults.conf
+	--with-gdm-config=%{_datadir}/gdm/defaults.conf \
+	--disable-silent-rules
 %{__make}
 
 %install
