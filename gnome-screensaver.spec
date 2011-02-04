@@ -1,12 +1,12 @@
 Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
-Version:	2.30.2
+Version:	2.91.4
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	0fbe6e610e6847ac1e69d49b1e1f0582
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/2.91/%{name}-%{version}.tar.bz2
+# Source0-md5:	c5fcb7181960c46dfc76aee0b103f167
 Source1:	%{name}.pamd
 Source2:	%{name}-xscreensaver.tar.gz
 # Source2-md5:	58ad753724418430fa93f02558056eab
@@ -19,16 +19,19 @@ BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-desktop-devel >= 2.30.0
+BuildRequires:	gnome-desktop3-devel >= 2.91.5
 BuildRequires:	gnome-menus-devel >= 2.26.0
-BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	gtk+3-devel >= 2.99.3
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgnomekbd-devel >= 2.26.0
-BuildRequires:	libnotify-devel
 BuildRequires:	libtool
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libXScrnSaver-devel
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXxf86misc-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXxf86vm-devel
 Requires(post,preun):	GConf2
 Requires:	xdg-menus
 Obsoletes:	xscreensaver-gnome2
@@ -110,10 +113,12 @@ cd $_DIR
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install gnome-screensaver.schemas
+%glib_compile_schemas
 
-%preun
-%gconf_schema_uninstall gnome-screensaver.schemas
+%postun
+if [ "$1" = "0" ]; then
+	%glib_compile_schemas
+fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -133,6 +138,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/backgrounds/cosmos
 %{_datadir}/dbus-1/services/org.gnome.ScreenSaver.service
 %{_datadir}/gnome-background-properties/cosmos.xml
+%{_datadir}/GConf/gsettings/org.gnome.screensaver.gschema.migrate
+%{_datadir}/glib-2.0/schemas/org.gnome.screensaver.gschema.xml
 %dir %{_desktopdir}/screensavers
 %{_desktopdir}/screensavers/cosmos-slideshow.desktop
 %{_desktopdir}/screensavers/footlogo-floaters.desktop
@@ -140,7 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/screensavers/popsquares.desktop
 %{_desktopdir}/gnome-screensaver-preferences.desktop
 %{_pixmapsdir}/*
-%{_sysconfdir}/gconf/schemas/gnome-screensaver.schemas
 %{_sysconfdir}/xdg/autostart/gnome-screensaver.desktop
 %{_sysconfdir}/xdg/menus/gnome-screensavers.menu
 %{_pkgconfigdir}/gnome-screensaver.pc
