@@ -15,7 +15,7 @@ BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-desktop3-devel >= 2.91.5
+BuildRequires:	gnome-desktop-devel >= 2.91.5
 BuildRequires:	gnome-menus-devel >= 2.26.0
 BuildRequires:	gsettings-desktop-schemas >= 0.1.7
 BuildRequires:	gtk+3-devel >= 3.0.0
