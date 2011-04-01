@@ -42,7 +42,8 @@ much better integration into the desktop than the old xscreensaver.
 
 %description -l pl.UTF-8
 Nowe rozwiązanie wygaszcza ekranu dla GNOME, z bardziej zgodnymi z HIG
-dialogami i lepszą integracją z desktopem niż stary xscreensaver.
+oknami dialogowymi i lepszą integracją z desktopem niż stary
+xscreensaver.
 
 %package xscreensaver
 Summary:	Support for xscreensaver
@@ -59,8 +60,6 @@ Wsparcie dla xscreensavera.
 
 %prep
 %setup -q -a2
-sed -i s#^en@shaw## po/LINGUAS
-rm po/en@shaw.po
 
 %build
 %{__intltoolize}
@@ -96,7 +95,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/gnome-screensaver
 _DIR=$(pwd)
 cd %{name}-xscreensaver
 # this one is provided by gnome-screensaver
-rm -f popsquares.desktop
+%{__rm} popsquares.desktop
 install * $RPM_BUILD_ROOT%{_desktopdir}/screensavers
 echo '%defattr(644,root,root,755)' > $_DIR/xscreensaver.files
 for I in *; do
