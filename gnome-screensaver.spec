@@ -2,7 +2,7 @@ Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
 Version:	3.4.3
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/3.4/%{name}-%{version}.tar.xz
@@ -77,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/gnome-screensaver
 
+# directory for external provides (eg. f-spot)
+install -d $RPM_BUILD_ROOT%{_libdir}/gnome-screensaver
+
 %find_lang %{name}
 
 %clean
@@ -89,6 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-screensaver
 %attr(755,root,root) %{_bindir}/gnome-screensaver-command
 %attr(755,root,root) %{_libdir}/gnome-screensaver-dialog
+%dir %{_libdir}/gnome-screensaver
 %{_sysconfdir}/xdg/autostart/gnome-screensaver.desktop
 %{_mandir}/man1/gnome-screensaver.1*
 %{_mandir}/man1/gnome-screensaver-command.1*
