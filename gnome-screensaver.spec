@@ -2,12 +2,13 @@ Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
 Version:	3.6.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/3.6/%{name}-%{version}.tar.xz
 # Source0-md5:	881cc58daa7cd8602737912ae5715cc8
 Source1:	%{name}.pamd
+Patch0:		am.patch
 URL:		http://live.gnome.org/GnomeScreensaver
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.10
@@ -51,6 +52,7 @@ xscreensaver.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
