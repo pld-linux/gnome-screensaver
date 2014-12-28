@@ -13,7 +13,7 @@ URL:		http://live.gnome.org/GnomeScreensaver
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	dbus-glib-devel >= 0.70
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-desktop-devel >= 3.1.91
