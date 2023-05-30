@@ -2,16 +2,16 @@ Summary:	GNOME screensaver
 Summary(pl.UTF-8):	Wygaszacz ekranu GNOME
 Name:		gnome-screensaver
 Version:	3.6.1
-Release:	11
+Release:	12
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-screensaver/3.6/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/gnome-screensaver/3.6/%{name}-%{version}.tar.xz
 # Source0-md5:	881cc58daa7cd8602737912ae5715cc8
 Source1:	%{name}.pamd
 Patch0:		am.patch
 Patch1:		%{name}-systemd.patch
 Patch2:		gnome-desktop335.patch
-URL:		http://live.gnome.org/GnomeScreensaver
+URL:		https://wiki.gnome.org/Attic/GnomeScreensaver
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	dbus-glib-devel >= 0.70
@@ -36,11 +36,9 @@ BuildRequires:	xorg-lib-libXxf86vm-devel
 BuildRequires:	xz
 Requires:	gsettings-desktop-schemas >= 0.1.7
 Suggests:	accountsservice
-Obsoletes:	f-spot-screensaver
-Obsoletes:	gnome-screensaver-xscreensaver
-Obsoletes:	xscreensaver-gnome2
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
+Obsoletes:	f-spot-screensaver < 0.9
+Obsoletes:	gnome-screensaver-xscreensaver < 3
+Obsoletes:	xscreensaver-gnome2 < 1:5.06
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -81,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/gnome-screensaver
+cp -p %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/gnome-screensaver
 
 # directory for external provides (eg. f-spot)
 install -d $RPM_BUILD_ROOT%{_libdir}/gnome-screensaver
